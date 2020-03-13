@@ -3,6 +3,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update &&  apt-get install -y \
     apache2 \
     libapache2-mod-php \
+    libapache2-mod-rpaf \
     php-mysql \
     git \
     php-memcached \
@@ -13,6 +14,7 @@ RUN apt-get update &&  apt-get install -y \
     php-pgsql \
     glusterfs-client 
 
+RUN a2enmod rpaf
 RUN rm /var/www/html/index.html
 RUN mkdir /var/www/html/images
 ADD code/* /var/www/html/
