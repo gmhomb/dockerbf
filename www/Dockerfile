@@ -12,7 +12,8 @@ RUN apt-get update &&  apt-get install -y \
     php-mbstring \
     unzip \
     php-pgsql \
-    glusterfs-client 
+    glusterfs-client \
+    nano
 
 RUN a2enmod rpaf
 RUN rm /var/www/html/index.html

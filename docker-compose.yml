@@ -1,0 +1,26 @@
+version: '3.3'
+
+configs:
+  bf_config:
+    file: ./config.php
+
+services:
+  web:
+    image: sondb/bf:v1
+
+    configs:
+      - source: bf_config
+        target: /var/www/html/config.php
+    ports:
+      - "8080:80"
+
+    environment:
+      BF_DB_HOST: 192.168.129.201 
+      BF_DB: bf 
+      BF_USER: bfuser
+      BF_PASSWORD: '' 
+      BF_ENTRY_IP: 10.212.141.197  
+      BF_LIMIT: 800 
+         
+    deploy:
+      mode: global
